@@ -1,0 +1,32 @@
+# Slap-royale-
+
+local userinputservice = game:GetService("UserInputService")
+local LocalPlayer = game.Players.LocalPlayer.Name
+Player = game.Players.LocalPlayer.Character.Name
+local plr = game.Players.LocalPlayer
+
+local GUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/aaaa"))()
+
+local UI = GUI:CreateWindow("Slap royale", "By Ok.")
+
+local Home = UI:addPage("Combat", 1, true, 6)
+ 
+
+
+    "Slap aura",
+    function(SlapAura)
+        if SlapAura == true then
+            getgenv().SlapAura = true
+            spawn(
+                function()
+                    while getgenv().SlapAura do
+                        for _, ok in ipairs(workspace:GetChildren()) do
+                            if ok:FindFirstChild("Humanoid") then
+                                game:GetService("ReplicatedStorage").Events.Slap:FireServer(ok.Torso)
+                                wait(0.01)
+                            end
+                        end
+                    end
+                end
+            
+        
